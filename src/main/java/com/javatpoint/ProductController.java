@@ -9,7 +9,7 @@ public class ProductController
 @Autowired
 private IProductService productService;
 //mapping the getProduct() method to /product
-@GetMapping(value = "/product")
+@GetMapping(value = "/product2")
 public List<Product> getProduct() 
 {
 //finds all the products
