@@ -1,4 +1,4 @@
-from openshift/openjdk-11
+FROM openshift/openjdk-11
 
 USER jhavelka
 EXPOSE 8080/tcp
