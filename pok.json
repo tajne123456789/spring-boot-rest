@@ -1,0 +1,92 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "metadata": {},
+    "items": [
+        {
+            "kind": "ImageStream",
+            "apiVersion": "image.openshift.io/v1",
+            "metadata": {
+                "name": "jh",
+                "creationTimestamp": null,
+                "labels": {
+                    "build": "jh"
+                },
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftNewBuild"
+                }
+            },
+            "spec": {
+                "lookupPolicy": {
+                    "local": false
+                }
+            },
+            "status": {
+                "dockerImageRepository": ""
+            }
+        },
+        {
+            "kind": "BuildConfig",
+            "apiVersion": "build.openshift.io/v1",
+            "metadata": {
+                "name": "jh",
+                "creationTimestamp": null,
+                "labels": {
+                    "build": "jh"
+                },
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftNewBuild"
+                }
+            },
+            "spec": {
+                "triggers": [
+                    {
+                        "type": "GitHub",
+                        "github": {
+                            "secret": "8jDR07viktEI0zvmGk4A"
+                        }
+                    },
+                    {
+                        "type": "Generic",
+                        "generic": {
+                            "secret": "RXH6DOtZKMb_g61fQrv_"
+                        }
+                    },
+                    {
+                        "type": "ConfigChange"
+                    },
+                    {
+                        "type": "ImageChange",
+                        "imageChange": {}
+                    }
+                ],
+                "source": {
+                    "type": "Dockerfile",
+                    "dockerfile": "from openshift/openjdk-11\n\nUSER jhavelka\nEXPOSE 8080/tcp\nADD spring-boot-rest-example-0.0.1-SNAPSHOT.jar spring-boot-rest-example.jar\n"
+                },
+                "strategy": {
+                    "type": "Docker",
+                    "dockerStrategy": {
+                        "from": {
+                            "kind": "ImageStreamTag",
+                            "namespace": "openshift",
+                            "name": "openjdk-11:latest"
+                        }
+                    }
+                },
+                "output": {
+                    "to": {
+                        "kind": "ImageStreamTag",
+                        "name": "jh:latest"
+                    }
+                },
+                "resources": {},
+                "postCommit": {},
+                "nodeSelector": null
+            },
+            "status": {
+                "lastVersion": 0
+            }
+        }
+    ]
+}
