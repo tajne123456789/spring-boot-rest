@@ -1,9 +1,9 @@
-apiVersion: template.openshift.io/v1
+apiVersion: image.openshift.io/v1
 kind: Template
 metadata:
   name: service-template
   annotations:
-    csas/deployment.vcs-url: "ssh://git@sdf.csin.cz:2222/ng/niagtw-nia-adapter.git"
+    csas/deployment.vcs-url: "git@github.com:tajne123456789/spring-boot-rest.git"
     csas/deployment.vcs-ref: "master"
     csas/deployment.vcs-root: "openshift"
 
@@ -31,72 +31,6 @@ parameters:
     generate: expression
     from: "[a-z0-9]{8}"
 
-  - name: KAFKA_SERVERS
-    description: "z env souboru"
-    displayName: "kafka servers"
-    value: "kafkaservers"
-
-  - name: KAFKA_REGISTRY
-    description: "z env souboru"
-    displayName: "kafka registry"
-    value: "kafkaregistry"
-
-  - name: KAFKA_RETRY_INTERVAL
-    description: "z env souboru"
-    displayName: "kafka retry interval"
-    value: ""
-
-  - name: KAFKA_RETRY_ATTEMPTS
-    description: "z env souboru"
-    displayName: "kafka retry attempts"
-    value: ""
-
-  - name: KAFKA_TIMEOUT_SEND
-    description: "z env souboru"
-    displayName: "kafka send timeout"
-    value: ""
-
-  - name: KAFKA_LISTENER_CONCURRENCY
-    description: "z env souboru"
-    displayName: "kafka listener concurrency"
-    value: ""
-
-  - name: KAFKA_MAX_POLL_RECORDS
-    description: "z env souboru"
-    displayName: "kafka max poll records"
-    value: ""
-
-  - name: KAFKA_MAX_POLL_INTERVAL
-    description: "z env souboru"
-    displayName: "kafka max poll interval in ms"
-    value: ""
-
-  - name: ENDPOINT_CASE_MANAGEMENT
-    description: "z env souboru"
-    displayName: "Endpoint for Case Management"
-    value: ""
-
-  - name: SPRING_ACTIVE_PROFILES
-    description: "z env souboru"
-    displayName: "Aktivni profil"
-    value: ""
-
-  - name: FEIGN_CLIENT_TIMEOUT_CONNECTION
-    description: "z env souboru"
-    displayName: "Feign client connection timeout"
-    value: ""
-
-  - name: FEIGN_CLIENT_TIMEOUT_READ
-    description: "z env souboru"
-    displayName: "Feign client read timeout"
-    value: ""
-
-  - name: REPLICAS
-    displayName: "Number of replicas"
-    description: "Number of replicas"
-    required: true
-    value: "1"
-
   - name: LOG_LEVEL
     description: "z env souboru"
     displayName: "Level of logging"
@@ -107,18 +41,6 @@ objects:
     kind: ConfigMap
     data:
       application.properties: |
-        spring.kafka.bootstrap-servers=${KAFKA_SERVERS}
-        spring.kafka.properties.schema.registry.url=${KAFKA_REGISTRY}
-        spring.profiles.active=${SPRING_ACTIVE_PROFILES}
-        feign.client.case-management.url=${ENDPOINT_CASE_MANAGEMENT}
-        kafka.retry-interval=${KAFKA_RETRY_INTERVAL}
-        kafka.retry-attempts=${KAFKA_RETRY_ATTEMPTS}
-        kafka.send-timeout=${KAFKA_TIMEOUT_SEND}
-        kafka.listener-concurrency=${KAFKA_LISTENER_CONCURRENCY}
-        kafka.max-poll.records=${KAFKA_MAX_POLL_RECORDS}
-        kafka.max-poll.interval=${KAFKA_MAX_POLL_INTERVAL}
-        feign.client.config.default.connectTimeout=${FEIGN_CLIENT_TIMEOUT_CONNECTION}
-        feign.client.config.default.readTimeout=${FEIGN_CLIENT_TIMEOUT_READ}
         logging.level.root=${LOG_LEVEL}
     metadata:
       name: niaconfig-adapter
@@ -201,19 +123,6 @@ objects:
                   name: config-volume
                 - mountPath: /app/secret
                   name: secret-volume
-                - mountPath: /app/kafka-cert
-                  name: ssl-certifikate-volume
-                  readOnly: true
-              readinessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /actuator/health
-                  port: 8080
-                  scheme: HTTP
-                initialDelaySeconds: 30
-                periodSeconds: 10
-                successThreshold: 1
-                timeoutSeconds: 2
           dnsPolicy: ClusterFirst
           restartPolicy: Always
           schedulerName: default-scheduler
