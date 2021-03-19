@@ -35,6 +35,12 @@ parameters:
     description: "z env souboru"
     displayName: "Level of logging"
     value: ""
+  
+  - name: REPLICAS
+    displayName: "Number of replicas"
+    description: "Number of replicas"
+    required: true
+    value: "1"
 
 objects:
   - apiVersion: v1
@@ -135,13 +141,6 @@ objects:
               configMap:
                 name: niaconfig-adapter
                 defaultMode: 420
-            - name: secret-volume
-              secret:
-                secretName: niapass-adapter
-                defaultMode: 420
-            - name: ssl-certifikate-volume
-              secret:
-                secretName: ssl-certifikat
       test: false
       triggers:
         - type: ConfigChange
