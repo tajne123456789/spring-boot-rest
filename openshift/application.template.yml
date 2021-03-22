@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: service-template
   annotations:
-    csas/deployment.vcs-url: "ssh://git@sdf.csin.cz:2222/ng/niagtw-nia-adapter.git"
+    csas/deployment.vcs-url: "git@github.com:tajne123456789/spring-boot-rest.git"
     csas/deployment.vcs-ref: "master"
     csas/deployment.vcs-root: "openshift"
 
