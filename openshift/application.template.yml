@@ -103,7 +103,7 @@ metadata:
 #    value: ""
 
 objects:
-  - apiVersion: v1
+#  - apiVersion: v1
 #    kind: ConfigMap
 #    data:
 #      application.properties: |
