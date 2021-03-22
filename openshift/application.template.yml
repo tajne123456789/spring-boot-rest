@@ -7,29 +7,29 @@ metadata:
     csas/deployment.vcs-ref: "master"
     csas/deployment.vcs-root: "openshift"
 
-#parameters:
-#  # System parameters
-#  - name: SERVICE_NAME
-#    displayName: "Configuration Name"
-#    description: "Name of the deployment configuration objects"
-#    required: true
-#    value: "nia-adapter"
-#
-#  - name: IMAGE_STREAM_TAG
-#    displayName: "Image Stream Tag"
-#    description: "Docker image used for deployment"
-#    required: true
-#
-#  - name: IMAGE_STREAM_NAMESPACE
-#    displayName: "Image Stream Namespace"
-#    description: "Namespace where is source image stream defined"
-#
-#    # this ID is added to config objects to distinct config versions - to prevent overwriting configuration
-#  - name: DEPLOYMENT_ID
-#    displayName: "Deployment Id"
-#    description: "Id string used for versioning ConfigMaps"
-#    generate: expression
-#    from: "[a-z0-9]{8}"
+parameters:
+  # System parameters
+  - name: SERVICE_NAME
+    displayName: "Configuration Name"
+    description: "Name of the deployment configuration objects"
+    required: true
+    value: "nia-adapter"
+
+  - name: IMAGE_STREAM_TAG
+    displayName: "Image Stream Tag"
+    description: "Docker image used for deployment"
+    required: true
+
+  - name: IMAGE_STREAM_NAMESPACE
+    displayName: "Image Stream Namespace"
+    description: "Namespace where is source image stream defined"
+
+    # this ID is added to config objects to distinct config versions - to prevent overwriting configuration
+  - name: DEPLOYMENT_ID
+    displayName: "Deployment Id"
+    description: "Id string used for versioning ConfigMaps"
+    generate: expression
+    from: "[a-z0-9]{8}"
 #
 #  - name: KAFKA_SERVERS
 #    description: "z env souboru"
@@ -91,12 +91,12 @@ metadata:
 #    displayName: "Feign client read timeout"
 #    value: ""
 #
-#  - name: REPLICAS
-#    displayName: "Number of replicas"
-#    description: "Number of replicas"
-#    required: true
-#    value: "1"
-#
+  - name: REPLICAS
+    displayName: "Number of replicas"
+    description: "Number of replicas"
+    required: true
+    value: "1"
+
 #  - name: LOG_LEVEL
 #    description: "z env souboru"
 #    displayName: "Level of logging"
