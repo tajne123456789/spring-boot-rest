@@ -120,8 +120,8 @@ objects:
 #        feign.client.config.default.connectTimeout=${FEIGN_CLIENT_TIMEOUT_CONNECTION}
 #        feign.client.config.default.readTimeout=${FEIGN_CLIENT_TIMEOUT_READ}
 #        logging.level.root=${LOG_LEVEL}
-    metadata:
-      name: spring-boot-rest
+#    metadata:
+#      name: spring-boot-rest
 
   - kind: Service
     apiVersion: v1
