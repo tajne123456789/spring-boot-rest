@@ -13,7 +13,7 @@ parameters:
     displayName: "Configuration Name"
     description: "Name of the deployment configuration objects"
     required: true
-    value: "nia-adapter"
+    value: "spring-boot-rest"
 
   - name: IMAGE_STREAM_TAG
     displayName: "Image Stream Tag"
