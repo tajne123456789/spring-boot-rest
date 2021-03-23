@@ -34,28 +34,32 @@ parameters:
   - name: ACTUATOR_WEB_ENDPOINT
     description: "z env souboru"
     displayName: "management.endpoints.web.exposure.include"
-    value: "sluzba"
+    value: ""
   
   - name: ACTUATOR_WEB_ENDPOINT
     description: "z env souboru"
     displayName: "management.endpoints.web.exposure.include"
-    value: "sluzba"
+    value: ""
 
   - name: ACTUATOR_WEB_PERCENTILES_HISTOGRAM_SWITCHONOFF
     description: "z env souboru"
     displayName: "management.metrics.distribution.percentiles-histogram.http.server.requests"
-    
+    value: ""    
+
   - name: ACTUATOR_WEB_PERCENTIL_NUMBER
     description: "z env souboru"
     displayName: "management.metrics.distribution.percentiles.http.server.requests"
+    value: ""
 
   - name: ACTUATOR_WEB_SLA_DURATION
     description: "z env souboru"
     displayName: "management.metrics.distribution.sla.http.server.requests"
+    value: ""
 
   - name: ACTUATOR_WEB_TIME_SWITCHONOFF
     description: "z env souboru"
     displayName: "metrics.web.server.auto-time-requests"
+    value: ""
 
   - name: REPLICAS
     displayName: "Number of replicas"
