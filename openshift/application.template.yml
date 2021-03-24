@@ -200,7 +200,7 @@ objects:
           schedulerName: default-scheduler
           securityContext: {}
           terminationGracePeriodSeconds: 30
-          volumes: {}
+          volumes:
 #            - name: logs-volume
 #              emptyDir: {}
             - name: config-volume
