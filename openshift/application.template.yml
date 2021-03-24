@@ -36,11 +36,6 @@ parameters:
     displayName: "management.endpoints.web.exposure.include"
     value: ""
   
-  - name: ACTUATOR_WEB_ENDPOINT
-    description: "z env souboru"
-    displayName: "management.endpoints.web.exposure.include"
-    value: ""
-
   - name: ACTUATOR_WEB_PERCENTILES_HISTOGRAM_SWITCHONOFF
     description: "z env souboru"
     displayName: "management.metrics.distribution.percentiles-histogram.http.server.requests"
