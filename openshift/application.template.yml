@@ -175,7 +175,7 @@ objects:
 #                  memory: 4Gi
               terminationMessagePath: /dev/termination-log
               terminationMessagePolicy: File
-#              volumeMounts:
+              volumeMounts:
 #                - mountPath: /opt/app-root/logs
 #                  name: logs-volume
                 - mountPath: /app/config
