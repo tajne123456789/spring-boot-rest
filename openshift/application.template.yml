@@ -178,8 +178,8 @@ objects:
 #              volumeMounts:
 #                - mountPath: /opt/app-root/logs
 #                  name: logs-volume
-#                - mountPath: /app/config
-#                  name: config-volume
+                - mountPath: /app/config
+                  name: config-volume
 #                - mountPath: /app/secret
 #                  name: secret-volume
 #                - mountPath: /app/kafka-cert
@@ -203,10 +203,10 @@ objects:
 #          volumes: {}
 #            - name: logs-volume
 #              emptyDir: {}
-#            - name: config-volume
-#              configMap:
-#                name: niaconfig-adapter
-#                defaultMode: 420
+            - name: config-volume
+              configMap:
+                name: spring-boot-rest
+                defaultMode: 420
 #            - name: secret-volume
 #              secret:
 #                secretName: niapass-adapter
