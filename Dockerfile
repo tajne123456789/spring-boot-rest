@@ -1,5 +1,4 @@
-FROM openshift/openjdk-11
-
-USER jhavelka
+FROM registry.access.redhat.com/ubi8/openjdk-11
 EXPOSE 8080/tcp
-ADD spring-boot-rest-example*.jar /deployments/spring-boot-rest-example.jar
+ADD target/app.jar app.jar
+CMD [ "sh", "-c", "java $JAVA_OPTS -DconfigBase=. -jar ./app.jar" ]
